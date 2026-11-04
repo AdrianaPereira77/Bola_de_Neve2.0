@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<title>Bola de Neve | Escudo & XP</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#acedff",
+            "on-tertiary-container": "#523200",
+            "surface-variant": "#2e3447",
+            "tertiary-container": "#e29100",
+            "tertiary-fixed": "#ffddb8",
+            "on-tertiary": "#472a00",
+            "on-secondary-fixed": "#001f26",
+            "tertiary-fixed-dim": "#ffb95f",
+            "surface-dim": "#0c1324",
+            "background": "#0c1324",
+            "primary-fixed-dim": "#4edea3",
+            "on-background": "#dce1fb",
+            "primary-container": "#10b981",
+            "surface-bright": "#33394c",
+            "on-error": "#690005",
+            "primary": "#4edea3",
+            "on-secondary-fixed-variant": "#004e5c",
+            "surface-container-low": "#151b2d",
+            "on-primary-container": "#00422b",
+            "secondary": "#4cd7f6",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#005236",
+            "surface-container-lowest": "#070d1f",
+            "on-secondary": "#003640",
+            "tertiary": "#ffb95f",
+            "surface-tint": "#4edea3",
+            "on-secondary-container": "#00424e",
+            "error-container": "#93000a",
+            "primary-fixed": "#6ffbbe",
+            "on-tertiary-fixed-variant": "#653e00",
+            "inverse-primary": "#006c49",
+            "inverse-surface": "#dce1fb",
+            "surface-container": "#191f31",
+            "outline-variant": "#3c4a42",
+            "on-primary-fixed": "#002113",
+            "surface": "#0c1324",
+            "on-surface-variant": "#bbcabf",
+            "inverse-on-surface": "#2a3043",
+            "on-surface": "#dce1fb",
+            "on-tertiary-fixed": "#2a1700",
+            "on-primary": "#003824",
+            "error": "#ffb4ab",
+            "surface-container-high": "#23293c",
+            "secondary-container": "#03b5d3",
+            "outline": "#86948a",
+            "secondary-fixed-dim": "#4cd7f6",
+            "surface-container-highest": "#2e3447"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter": "1rem",
+            "gutter-tablet": "1.5rem",
+            "margin": "1rem",
+            "margin-tablet": "2rem"
+          },
+          fontFamily: {
+            "label-caps": ["JetBrains Mono"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "numeric-hero": ["JetBrains Mono"],
+            "numeric-hero-mobile": ["JetBrains Mono"],
+            "numeric-data": ["JetBrains Mono"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label-caps": ["11px", { lineHeight: "14px", letterSpacing: "0.06em", fontWeight: "500" }],
+            "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }],
+            "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0", fontWeight: "400" }],
+            "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "numeric-hero": ["32px", { lineHeight: "40px", letterSpacing: "-0.03em", fontWeight: "700" }],
+            "numeric-hero-mobile": ["26px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "numeric-data": ["15px", { lineHeight: "20px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "headline-lg": ["26px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "display-lg-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.025em", fontWeight: "800" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+        background-color: #0c1324;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+      main > :first-child {
+        margin-top: 0 !important;
+      }
+      main > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md flex flex-col min-h-screen">
+<!-- Header Superior Fixo com Status da Jornada e Streak -->
+<header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl pt-safe shadow-[0_1px_12px_rgba(0,0,0,0.35)]">
+<div class="h-16 px-margin flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">bubble_chart</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider truncate">Bola de Neve</span>
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight truncate leading-tight">Escudo &amp; Xp</h1>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<div class="flex items-center gap-1 bg-surface-container-high/80 px-2 py-1 rounded-full border border-surface-container-highest/60">
+<span class="material-symbols-outlined text-tertiary text-[16px]">local_fire_department</span>
+<span class="font-numeric-data text-numeric-data text-tertiary font-bold">14d</span>
+</div>
+<div class="flex items-center gap-1 bg-primary/10 px-2.5 py-1 rounded-full border border-primary/25">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold">Base Blindada</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0 ml-1">
+<span class="material-symbols-outlined text-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Conteúdo Principal -->
+<main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen">
+<div class="flex flex-col w-full">
+<div class="px-margin py-space-md flex flex-col gap-space-lg">
+<!-- SEÇÃO 1: TERMÔMETRO DA BASE SEGURA (ESCUDO DE PROTEÇÃO) -->
+<section aria-labelledby="escudo-heading" class="flex flex-col gap-space-md">
+<!-- Card Primário da Reserva de Emergência -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container p-space-md shadow-xl flex flex-col gap-space-md">
+<!-- Luz Volumétrica de Fundo (Bioluminescência Esmeralda) -->
+<div class="absolute -top-16 -right-16 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-20 -left-20 w-44 h-44 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Header do Escudo -->
+<div class="flex flex-col gap-space-xs relative z-10">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/15 text-primary font-label-caps text-label-caps tracking-wider uppercase">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+              Escudo de Proteção Nível 1
+            </span>
+<span class="inline-flex items-center gap-1 text-primary font-numeric-data text-numeric-data">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+              50% Carregado
+            </span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight" id="escudo-heading">
+            Base Segura: O Escudo de Paz
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            “Nenhum general vai para a guerra sem blindar a própria trincheira. Enquanto este escudo não estiver completo, investimentos de risco permanecem selados.”
+          </p>
+</div>
+<!-- Valores de Carga da Reserva -->
+<div class="relative z-10 flex flex-col gap-space-xs p-space-sm bg-surface-container-low rounded-lg shadow-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Carga Acumulada</span>
+<span class="font-label-caps text-label-caps text-primary uppercase">3 de 6 Meses Concluídos</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-numeric-hero-mobile text-numeric-hero-mobile text-primary font-bold tracking-tight">R$ 4.500</span>
+<span class="font-numeric-data text-numeric-data text-on-surface-variant">/ R$ 9.000</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Meta Ideal: 6 Meses da Missão Principal <span class="font-label-caps text-label-caps text-on-surface">(R$ 1.500/mês × 6 = R$ 9.000)</span>
+</p>
+</div>
+<!-- Termômetro Tubular Modular Hexagonal (6 Compartimentos) -->
+<div class="relative z-10 flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-caps text-label-caps text-on-surface-variant uppercase">
+<span>Blindagem Mensal</span>
+<span class="text-primary font-semibold">180 Dias de Calma Absoluta</span>
+</div>
+<div class="grid grid-cols-6 gap-1.5 p-1.5 bg-surface-container-lowest rounded-xl shadow-inner">
+<!-- Compartimento Mês 1 - Ativo -->
+<div class="flex flex-col items-center gap-1 py-2 px-1 rounded-lg bg-primary/20 text-primary shadow-sm relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary/10 animate-pulse"></div>
+<span class="material-symbols-outlined text-[18px] relative z-10" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-label-caps text-[10px] uppercase font-bold relative z-10">Mês 1</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary relative z-10 shadow-sm"></span>
+</div>
+<!-- Compartimento Mês 2 - Ativo -->
+<div class="flex flex-col items-center gap-1 py-2 px-1 rounded-lg bg-primary/20 text-primary shadow-sm relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary/10 animate-pulse"></div>
+<span class="material-symbols-outlined text-[18px] relative z-10" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-label-caps text-[10px] uppercase font-bold relative z-10">Mês 2</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary relative z-10 shadow-sm"></span>
+</div>
+<!-- Compartimento Mês 3 - Ativo -->
+<div class="flex flex-col items-center gap-1 py-2 px-1 rounded-lg bg-primary/20 text-primary shadow-sm relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary/10 animate-pulse"></div>
+<span class="material-symbols-outlined text-[18px] relative z-10" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-label-caps text-[10px] uppercase font-bold relative z-10">Mês 3</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary relative z-10 shadow-sm"></span>
+</div>
+<!-- Compartimento Mês 4 - Alvo Próximo -->
+<div class="flex flex-col items-center gap-1 py-2 px-1 rounded-lg bg-surface-container-high text-on-surface-variant relative">
+<span class="material-symbols-outlined text-[18px] text-tertiary">lock_open</span>
+<span class="font-label-caps text-[10px] uppercase font-bold text-tertiary">Mês 4</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<!-- Compartimento Mês 5 - Aguardando -->
+<div class="flex flex-col items-center gap-1 py-2 px-1 rounded-lg bg-surface-container-low text-on-surface-variant/40 relative">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span class="font-label-caps text-[10px] uppercase font-bold">Mês 5</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"></span>
+</div>
+<!-- Compartimento Mês 6 - Aguardando -->
+<div class="flex flex-col items-center gap-1 py-2 px-1 rounded-lg bg-surface-container-low text-on-surface-variant/40 relative">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span class="font-label-caps text-[10px] uppercase font-bold">Mês 6</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"></span>
+</div>
+</div>
+</div>
+<!-- Trava de Segurança Sistêmica (Lockdown) -->
+<div class="relative z-10 rounded-xl bg-surface-container-low p-space-sm flex flex-col gap-space-xs shadow-md">
+<div class="flex items-center gap-2 text-tertiary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">gpp_maybe</span>
+<span class="font-label-caps text-label-caps font-bold uppercase tracking-wider text-tertiary">
+              Mercado de Risco Bloqueado Temporariamente
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Você tem 3 meses de escudo construídos. Ações, Criptoativos e Fundos Imobiliários exigem estômago que só quem tem a Base Segura preenchida possui. Seu Pote 3 está 100% canalizado para o <strong class="text-on-surface">Tesouro Selic / CDB Liquidez Diária 100% CDI</strong>.
+          </p>
+<div class="flex flex-wrap items-center gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-caps text-[10px] font-semibold">
+              Risco Zero
+            </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-caps text-[10px] font-semibold">
+              Liquidez D+0
+            </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-caps text-[10px] font-semibold">
+              FGC Protegido
+            </span>
+</div>
+</div>
+<!-- Botão Acelerador de Escudo -->
+<div class="relative z-10 flex flex-col gap-space-xs p-space-sm rounded-xl bg-surface-container-high shadow-sm">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">bolt</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-tight">
+              Deseja destinar 10% do seu Inventário Livre este mês para fechar o 4º mês do Escudo?
+            </p>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary text-on-primary font-headline-md text-body-lg font-bold shadow-lg transition-transform active:scale-[0.98]" id="btn-acelerar">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+            Acelerar Base Segura (+R$ 150)
+          </button>
+</div>
+</div>
+</section>
+<!-- SEÇÃO 2: TRILHA DE LETRAMENTO (ÁRVORE DE HABILIDADES / SKILL TREE RPG) -->
+<section aria-labelledby="skill-tree-heading" class="flex flex-col gap-space-md">
+<!-- Header do Jogador RPG -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-xl flex flex-col gap-space-sm relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-secondary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between relative z-10">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary shadow-inner">
+<span class="material-symbols-outlined text-[24px]">account_tree</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase tracking-wider">Nível 2 • Discípulo da Constância</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold" id="skill-tree-heading">Árvore de Habilidades</h2>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-numeric-data text-numeric-data text-tertiary font-bold">350 XP</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">4/16 Habilidades</span>
+</div>
+</div>
+<div class="w-full h-1.5 bg-surface-container-lowest rounded-full overflow-hidden relative z-10">
+<div class="h-full bg-secondary rounded-full" style="width: 25%;"></div>
+</div>
+</div>
+<!-- Diagrama dos Nós Interligados -->
+<div class="relative flex flex-col gap-space-md pl-2">
+<!-- Linha Guia Vertical do RPG Conectando Níveis -->
+<div class="absolute left-6 top-8 bottom-8 w-0.5 bg-surface-container-highest -z-0"></div>
+<!-- ================= NÍVEL 1: FUNDAMENTAÇÃO & SOBREVIVÊNCIA (CONCLUÍDO) ================= -->
+<div class="relative z-10 flex flex-col gap-space-sm">
+<!-- Título do Nível -->
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center shadow-sm shrink-0">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center gap-2 min-w-0">
+<h3 class="font-headline-md text-body-lg text-on-surface font-bold truncate">Nível 1: Fundamentação &amp; Sobrevivência</h3>
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary font-label-caps text-[10px] font-bold shrink-0 uppercase">Concluído</span>
+</div>
+</div>
+<!-- Cards dos Nós do Nível 1 -->
+<div class="ml-10 flex flex-col gap-space-xs">
+<!-- Nó 1.1 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between gap-2">
+<div class="flex items-start gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">headphones</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate leading-tight">O Monstro do Rotativo</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Áudio • 3 min</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-primary font-label-caps text-[10px] font-bold">+50 XP</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps font-bold shrink-0">
+                Olhos Abertos
+              </span>
+</div>
+<!-- Nó 1.2 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between gap-2">
+<div class="flex items-start gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">article</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate leading-tight">A Força dos 3 Potes</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Texto • 4 min</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-primary font-label-caps text-[10px] font-bold">+50 XP</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps font-bold shrink-0">
+                Guardião dos Potes
+              </span>
+</div>
+</div>
+</div>
+<!-- ================= NÍVEL 2: A FORJA DO ESCUDO (EM PROGRESSO) ================= -->
+<div class="relative z-10 flex flex-col gap-space-sm">
+<!-- Título do Nível -->
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center shadow-md shrink-0">
+<span class="material-symbols-outlined text-[18px]">lock_open</span>
+</div>
+<div class="flex items-center gap-2 min-w-0">
+<h3 class="font-headline-md text-body-lg text-on-surface font-bold truncate">Nível 2: A Forja do Escudo</h3>
+<span class="px-2 py-0.5 rounded-full bg-secondary/20 text-secondary font-label-caps text-[10px] font-bold shrink-0 uppercase">Em Progresso</span>
+</div>
+</div>
+<!-- Cards dos Nós do Nível 2 -->
+<div class="ml-10 flex flex-col gap-space-sm">
+<!-- Nó 2.1: Card Ativo com Aula em Áudio Interativa -->
+<div class="p-space-md rounded-xl bg-surface-container shadow-md flex flex-col gap-space-sm relative overflow-hidden">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase tracking-wider">Disponível Agora • Aula Ativa</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary font-label-caps text-[10px] font-bold">+100 XP</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<h4 class="font-headline-md text-body-lg text-on-surface font-bold leading-tight">
+                  Tesouro Selic &amp; CDI Sem Segredos
+                </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Entenda exatamente onde repousa seu escudo sem cair em armadilhas de liquidez e carência de resgate.
+                </p>
+</div>
+<!-- Reprodutor de Áudio Minimalista -->
+<div class="flex flex-col gap-space-xs p-space-sm rounded-lg bg-surface-container-low shadow-inner">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">graphic_eq</span>
+<span class="font-label-caps text-label-caps text-on-surface">Áudio do Mentor • 4 min</span>
+</div>
+<span class="font-numeric-data text-body-sm text-on-surface-variant">01:14 / 04:00</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 32%;"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<button class="inline-flex items-center gap-1 font-label-caps text-label-caps text-secondary uppercase hover:underline">
+<span class="material-symbols-outlined text-[14px]">subtitles</span>
+                    Ver Transcrição Completa
+                  </button>
+<span class="font-label-caps text-label-caps text-primary">Velocidade 1.25x</span>
+</div>
+</div>
+<!-- CTA de Reprodução -->
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-secondary text-on-secondary font-headline-md text-body-md font-bold shadow-md transition-transform active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                Ouvir Aula em Áudio
+              </button>
+</div>
+<!-- Nó 2.2: Simulação Disponível -->
+<div class="p-space-sm rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between gap-2">
+<div class="flex items-start gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">calculate</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate leading-tight">O Ponto de Virada dos Juros Compostos</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Simulação • 3 min</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-tertiary font-label-caps text-[10px] font-bold">+75 XP</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-1 rounded-full bg-secondary/15 text-secondary font-label-caps text-label-caps font-bold shrink-0">
+                Disponível ✨
+              </span>
+</div>
+</div>
+</div>
+<!-- ================= NÍVEL 3: MULTIPLICAÇÃO & PATRIMÔNIO (BLOQUEADO) ================= -->
+<div class="relative z-10 flex flex-col gap-space-sm opacity-85">
+<!-- Título do Nível -->
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center shadow-inner shrink-0">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</div>
+<div class="flex items-center gap-2 min-w-0">
+<h3 class="font-headline-md text-body-lg text-on-surface-variant font-bold truncate">Nível 3: Multiplicação &amp; Patrimônio</h3>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-outline font-label-caps text-[10px] font-bold shrink-0 uppercase">Bloqueado</span>
+</div>
+</div>
+<!-- Cards dos Nós Bloqueados com Justificativa do Mentor -->
+<div class="ml-10 flex flex-col gap-space-sm">
+<!-- Nó 3.1: FIIs Bloqueados -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">domain</span>
+<span class="font-headline-md text-body-md font-bold text-on-surface leading-tight">Fundos Imobiliários (FIIs) &amp; Renda Passiva</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">lock</span>
+</div>
+<!-- Requisito de Liberação -->
+<div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-surface-container text-tertiary font-label-caps text-label-caps font-semibold">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+<span>Requer: Base Segura (Reserva de Emergência) 100% Preenchida</span>
+</div>
+<!-- Balão com Voz do Mentor -->
+<div class="p-space-sm rounded-xl bg-surface-container-high flex items-start gap-2 shadow-inner">
+<div class="w-6 h-6 rounded-full bg-secondary/20 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic leading-relaxed">
+                  “Não construa o telhado antes dos alicerces. Complete seu escudo de 6 meses para liberar esta lição.”
+                </p>
+</div>
+</div>
+<!-- Nó 3.2: Ações Bloqueadas -->
+<div class="p-space-sm rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">candlestick_chart</span>
+<span class="font-headline-md text-body-md font-bold text-on-surface leading-tight">Ações &amp; Dividendos Aristocratas</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">lock</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-surface-container text-outline font-label-caps text-label-caps font-semibold">
+<span class="material-symbols-outlined text-[16px]">lock_clock</span>
+<span>Requer: Conclusão de FIIs + Dívidas 100% Zeradas</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  // Microinteração para o acelerador de escudo
+  document.addEventListener('DOMContentLoaded', () => {
+    const btnAcelerar = document.getElementById('btn-acelerar');
+    if (btnAcelerar) {
+      btnAcelerar.addEventListener('click', () => {
+        btnAcelerar.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">sync</span> Alocando R$ 150...';
+        setTimeout(() => {
+          btnAcelerar.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span> Escudo Acelerado com Sucesso!';
+          btnAcelerar.classList.remove('bg-primary', 'text-on-primary');
+          btnAcelerar.classList.add('bg-primary-container', 'text-on-primary-container');
+        }, 800);
+      });
+    }
+  });
+</script>
+</main>
+<!-- Barra Inferior de Navegação Tática (5 Abas) -->
+<nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.5)] border-t border-white/[0.04]" data-active-classes="text-primary font-semibold">
+<div class="grid grid-cols-5 items-center h-20 px-1">
+<!-- 1. Mentor -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="mentor" href="#">
+<span class="material-symbols-outlined text-[23px]">support_agent</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Mentor</span>
+</a>
+<!-- 2. Potes -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="potes" href="#">
+<span class="material-symbols-outlined text-[23px]">pie_chart</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Potes</span>
+</a>
+<!-- 3. Guerra -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="guerra" href="#">
+<span class="material-symbols-outlined text-[23px]">swords</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Guerra</span>
+</a>
+<!-- 4. Escudo & XP -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="escudo-e-xp" href="#">
+<span class="material-symbols-outlined text-[23px]">security</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Escudo &amp; XP</span>
+</a>
+<!-- 5. Bola de Neve -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="bola-de-neve" href="#">
+<span class="material-symbols-outlined text-[23px]">trending_up</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Bola Neve</span>
+</a>
+</div>
+</nav>
+
+<nav class="bn-global-nav" aria-label="Navegação principal">
+  <a href="potes.html" class=""><span>◈</span><small>Potes</small></a>
+  <a href="guerra.html" class=""><span>⚔</span><small>Dívidas</small></a>
+  <a href="escudo.html" class="active"><span>✦</span><small>Escudo & XP</small></a>
+</nav>
+<div id="bn-global-toast" role="status" aria-live="polite"></div>
+<style>
+.bn-global-nav{position:fixed;z-index:9999;bottom:0;left:0;right:0;display:flex;justify-content:space-around;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(7,13,31,.96);border-top:1px solid rgba(134,148,138,.25);backdrop-filter:blur(18px)}
+.bn-global-nav a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 5px;border-radius:12px;text-decoration:none;color:#bbcabf;font:600 12px 'Plus Jakarta Sans',sans-serif;transition:.2s}
+.bn-global-nav a span{font-size:17px}.bn-global-nav a.active{background:rgba(78,222,163,.13);color:#4edea3;box-shadow:inset 0 0 0 1px rgba(78,222,163,.2)}
+#bn-global-toast{position:fixed;z-index:10000;bottom:82px;left:50%;transform:translate(-50%,15px);opacity:0;pointer-events:none;background:#191f31;color:#dce1fb;border:1px solid rgba(78,222,163,.35);padding:10px 16px;border-radius:12px;font:500 13px 'Plus Jakarta Sans',sans-serif;transition:.25s;max-width:90vw;text-align:center}
+#bn-global-toast.show{opacity:1;transform:translate(-50%,0)} body{padding-bottom:76px!important}
+</style>
+<script>
+(function(){
+ const KEY='bolaDeNeve.shared.v1';
+ const defaults={meta:30000,reserva:0,xp:0,dividas:1200,estrategia:'snowball',potes:{}};
+ function read(){try{return Object.assign({},defaults,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){return Object.assign({},defaults)}}
+ function save(patch){const state=Object.assign(read(),patch);localStorage.setItem(KEY,JSON.stringify(state));window.dispatchEvent(new CustomEvent('bn:state',{detail:state}));return state}
+ window.BolaDeNeve={getState:read,update:save};
+ const toast=document.getElementById('bn-global-toast');
+ window.BolaDeNeve.notify=function(msg){if(!toast)return;toast.textContent=msg;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2300)};
+ window.addEventListener('storage',e=>{if(e.key===KEY)window.dispatchEvent(new CustomEvent('bn:state',{detail:read()}))});
+ function paint(){const s=read();document.querySelectorAll('[data-bn]').forEach(el=>{const k=el.dataset.bn;if(k in s)el.textContent=typeof s[k]==='number'?s[k].toLocaleString('pt-BR'):s[k]})}
+ paint();window.addEventListener('bn:state',paint);
+})();
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const btn=document.getElementById('btn-acelerar');
+ if(btn)btn.addEventListener('click',()=>{const s=BolaDeNeve.getState();BolaDeNeve.update({reserva:s.reserva+150,xp:s.xp+50});BolaDeNeve.notify('Escudo atualizado: +R$ 150 e +50 XP.');});
+});
+</script>
+
+</body></html>

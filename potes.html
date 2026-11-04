@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<title>Bola de Neve | Potes & Open Finance</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#acedff",
+            "on-tertiary-container": "#523200",
+            "surface-variant": "#2e3447",
+            "tertiary-container": "#e29100",
+            "tertiary-fixed": "#ffddb8",
+            "on-tertiary": "#472a00",
+            "on-secondary-fixed": "#001f26",
+            "tertiary-fixed-dim": "#ffb95f",
+            "surface-dim": "#0c1324",
+            "background": "#0c1324",
+            "primary-fixed-dim": "#4edea3",
+            "on-background": "#dce1fb",
+            "primary-container": "#10b981",
+            "surface-bright": "#33394c",
+            "on-error": "#690005",
+            "primary": "#4edea3",
+            "on-secondary-fixed-variant": "#004e5c",
+            "surface-container-low": "#151b2d",
+            "on-primary-container": "#00422b",
+            "secondary": "#4cd7f6",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#005236",
+            "surface-container-lowest": "#070d1f",
+            "on-secondary": "#003640",
+            "tertiary": "#ffb95f",
+            "surface-tint": "#4edea3",
+            "on-secondary-container": "#00424e",
+            "error-container": "#93000a",
+            "primary-fixed": "#6ffbbe",
+            "on-tertiary-fixed-variant": "#653e00",
+            "inverse-primary": "#006c49",
+            "inverse-surface": "#dce1fb",
+            "surface-container": "#191f31",
+            "outline-variant": "#3c4a42",
+            "on-primary-fixed": "#002113",
+            "surface": "#0c1324",
+            "on-surface-variant": "#bbcabf",
+            "inverse-on-surface": "#2a3043",
+            "on-surface": "#dce1fb",
+            "on-tertiary-fixed": "#2a1700",
+            "on-primary": "#003824",
+            "error": "#ffb4ab",
+            "surface-container-high": "#23293c",
+            "secondary-container": "#03b5d3",
+            "outline": "#86948a",
+            "secondary-fixed-dim": "#4cd7f6",
+            "surface-container-highest": "#2e3447"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter": "1rem",
+            "gutter-tablet": "1.5rem",
+            "margin": "1rem",
+            "margin-tablet": "2rem"
+          },
+          fontFamily: {
+            "label-caps": ["JetBrains Mono"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "numeric-hero": ["JetBrains Mono"],
+            "numeric-hero-mobile": ["JetBrains Mono"],
+            "numeric-data": ["JetBrains Mono"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label-caps": ["11px", { lineHeight: "14px", letterSpacing: "0.06em", fontWeight: "500" }],
+            "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }],
+            "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0", fontWeight: "400" }],
+            "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "numeric-hero": ["32px", { lineHeight: "40px", letterSpacing: "-0.03em", fontWeight: "700" }],
+            "numeric-hero-mobile": ["26px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "numeric-data": ["15px", { lineHeight: "20px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "headline-lg": ["26px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "display-lg-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.025em", fontWeight: "800" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+        background-color: #0c1324;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+      main > :first-child {
+        margin-top: 0 !important;
+      }
+      main > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md flex flex-col min-h-screen">
+<!-- Header Superior Fixo com Status da Jornada e Streak -->
+<header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl pt-safe shadow-[0_1px_12px_rgba(0,0,0,0.35)]">
+<div class="h-16 px-margin flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">bubble_chart</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider truncate">Bola de Neve</span>
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight truncate leading-tight">Potes</h1>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<div class="flex items-center gap-1 bg-surface-container-high/80 px-2 py-1 rounded-full border border-surface-container-highest/60">
+<span class="material-symbols-outlined text-tertiary text-[16px]">local_fire_department</span>
+<span class="font-numeric-data text-numeric-data text-tertiary font-bold">14d</span>
+</div>
+<div class="flex items-center gap-1 bg-primary/10 px-2.5 py-1 rounded-full border border-primary/25">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold">Base Blindada</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0 ml-1">
+<span class="material-symbols-outlined text-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Conteúdo Principal -->
+<main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen">
+<div class="flex flex-col w-full px-margin space-y-space-md">
+<!-- Sub-header acolhedor com data de ciclo -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Distribuição Estratégica</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ciclo Ativo: 19 de Outubro • Faltam 11 dias</p>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[16px]">account_balance_wallet</span>
+<span class="font-numeric-data text-numeric-data text-on-surface font-semibold">R$ 3.000,00</span>
+</div>
+</div>
+<!-- 1. CONTROLE MESTRE DUAL-MODE (Open Finance vs. Modo Manual) -->
+<div class="grid grid-cols-1 gap-space-sm">
+<!-- Card A: Open Finance Ativo -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-high p-space-md shadow-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">radar</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-primary"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold leading-snug">Conectar Banco (Open Finance)</h2>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+<p class="font-body-sm text-body-sm text-primary font-medium truncate">Sincronizado com Nubank &amp; Itaú (há 12 min)</p>
+</div>
+</div>
+</div>
+<!-- Toggle Ativo -->
+<button aria-label="Alternar Open Finance" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full bg-primary transition-colors p-0.5 shadow-sm" id="btnToggleOpenFinance" type="button">
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface shadow-md ring-0 transition duration-200 ease-in-out translate-x-5"></span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm">
+        Leitura inteligente de entradas, Pix e faturas sem armazenar senhas. Criptografia bancária de ponta a ponta.
+      </p>
+</div>
+<!-- Card B: Modo Manual & Privado -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-sm">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold text-[16px] leading-tight">Modo Manual &amp; Privado</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Controle 100% offline sob o seu comando.</p>
+</div>
+</div>
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-highest active:bg-surface-bright text-secondary font-label-caps text-label-caps transition-all" id="btnInsertManual" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Inserir na Mão</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 2. ALERTA PREVENTIVO DE LIMITE (O GUARDA DA TRINCHEIRA) -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-high p-space-md shadow-lg">
+<!-- Glow de advertência de fundo -->
+<div class="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-tertiary/10 blur-2xl pointer-events-none"></div>
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-tertiary/15 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[22px]">crisis_alert</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-caps text-label-caps text-tertiary uppercase font-bold tracking-wider">Radar de Consumo</span>
+<span class="px-1.5 py-0.5 rounded bg-tertiary/20 text-tertiary font-label-caps text-[9px] uppercase font-bold">Atenção</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface font-bold mt-0.5 leading-snug">
+          Você consumiu 45% dos 50% da sua Missão Principal
+        </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+          Restam apenas <span class="font-numeric-data text-numeric-data text-tertiary font-bold">R$ 150,00</span> para o teto estipulado deste mês (<span class="font-numeric-data text-numeric-data font-semibold">R$ 1.500,00</span>). Faltam 11 dias para o ciclo fechar. Segure gastos não essenciais!
+        </p>
+</div>
+</div>
+<!-- Mini medidor de perigo do teto -->
+<div class="mt-space-sm space-y-1">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant font-medium">Capacidade do Pote de Missão</span>
+<span class="font-numeric-data text-numeric-data text-tertiary font-bold">90% gasto</span>
+</div>
+<div class="h-2 w-full rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full rounded-full bg-tertiary transition-all duration-500" style="width: 90%;"></div>
+</div>
+</div>
+</div>
+<!-- 3. SEÇÃO DO DÍZIMO SAGRADO (10% - PRIMÍCIAS) -->
+<div class="rounded-xl bg-surface-container-high p-space-md shadow-md space-y-space-sm">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container/30 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[22px]">workspace_premium</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold text-[17px]">Dízimo Sagrado</h3>
+<span class="px-1.5 py-0.2 rounded-full bg-tertiary/20 text-tertiary font-label-caps text-label-caps font-bold">10% Primícias</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Abatimento Prioritário</span>
+</div>
+</div>
+<!-- Toggle Dourado Ativo -->
+<button aria-label="Separar Dízimo Sagrado" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full bg-tertiary transition-colors p-0.5 shadow-sm" id="btnToggleDizimo" type="button">
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface shadow-md ring-0 transition duration-200 ease-in-out translate-x-5"></span>
+</button>
+</div>
+<!-- Citação Acolhedora -->
+<div class="rounded-lg bg-surface-container p-space-sm">
+<p class="font-body-sm text-body-sm text-tertiary-fixed font-medium italic flex items-start gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary shrink-0 mt-0.5">format_quote</span>
+<span>"Com Deus não se negocia. Honre o primeiro fruto antes de qualquer divisão."</span>
+</p>
+</div>
+<!-- Linha de Matemática Transparente -->
+<div class="grid grid-cols-3 gap-2 pt-1 text-center">
+<div class="rounded-lg bg-surface-container-low p-2">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase block">Entrada Bruta</span>
+<span class="font-numeric-data text-numeric-data text-on-surface font-bold">R$ 3.000</span>
+</div>
+<div class="rounded-lg bg-tertiary/10 p-2">
+<span class="font-label-caps text-[10px] text-tertiary uppercase block font-semibold">Fidelidade (-10%)</span>
+<span class="font-numeric-data text-numeric-data text-tertiary font-bold">- R$ 300</span>
+</div>
+<div class="rounded-lg bg-primary/10 p-2">
+<span class="font-label-caps text-[10px] text-primary uppercase block font-semibold">Base dos Potes</span>
+<span class="font-numeric-data text-numeric-data text-primary font-bold">R$ 2.700</span>
+</div>
+</div>
+</div>
+<!-- 4. VISÃO DOS 3 POTES MESTRES COM STATUS EM TEMPO REAL -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">layers</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold text-[18px]">Tríade de Potes Táticos</h3>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase font-medium">Regra 50 / 30 / 20</span>
+</div>
+<!-- POTE 1: 50% - Missão Principal (Alerta Laranja/Amarelo) -->
+<div class="rounded-xl bg-surface-container-high p-space-md shadow-md space-y-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-tertiary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[22px]">shield</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline-md text-headline-md text-on-surface font-bold text-[16px]">Pote 1: Missão Principal</h4>
+<span class="px-1.5 py-0.5 rounded bg-tertiary/20 text-tertiary font-label-caps text-[10px] font-bold">50%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sobrevivência, Aluguel e Contas Fixas</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-tertiary uppercase font-bold block">Teto Crítico</span>
+<span class="font-numeric-data text-numeric-data text-on-surface font-bold">90%</span>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between items-baseline">
+<span class="font-numeric-hero-mobile text-numeric-hero-mobile text-on-surface font-bold">R$ 1.350,00</span>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">de R$ 1.500,00</span>
+</div>
+<!-- Barra de Progresso em Alerta (90%) -->
+<div class="h-2.5 w-full rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full rounded-full bg-tertiary transition-all duration-700" style="width: 90%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">hourglass_bottom</span>
+          11 dias restantes
+        </span>
+<span class="text-tertiary font-semibold">R$ 150,00 disponíveis</span>
+</div>
+</div>
+<!-- POTE 2: 30% - Inventário Livre (Loot e Lazer sem Culpa) -->
+<div class="rounded-xl bg-surface-container-high p-space-md shadow-md space-y-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[22px]">sports_esports</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline-md text-headline-md text-on-surface font-bold text-[16px]">Pote 2: Inventário Livre</h4>
+<span class="px-1.5 py-0.5 rounded bg-secondary/20 text-secondary font-label-caps text-[10px] font-bold">30%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Loot Pessoal e Lazer sem Culpa</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-secondary uppercase font-bold block">Ritmo Saudável</span>
+<span class="font-numeric-data text-numeric-data text-on-surface font-bold">52%</span>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between items-baseline">
+<span class="font-numeric-hero-mobile text-numeric-hero-mobile text-on-surface font-bold">R$ 420,00</span>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">de R$ 810,00</span>
+</div>
+<!-- Barra de Progresso Azul/Roxa (52%) -->
+<div class="h-2.5 w-full rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full rounded-full bg-secondary transition-all duration-700" style="width: 52%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">check_circle</span>
+          Consumo moderado
+        </span>
+<span class="text-secondary font-semibold">R$ 390,00 disponíveis</span>
+</div>
+</div>
+<!-- POTE 3: 20% - XP Financeiro (Base Segura / Tesouro Selic) -->
+<div class="rounded-xl bg-surface-container-high p-space-md shadow-md space-y-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">rocket_launch</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline-md text-headline-md text-on-surface font-bold text-[16px]">Pote 3: XP Financeiro</h4>
+<span class="px-1.5 py-0.5 rounded bg-primary/20 text-primary font-label-caps text-[10px] font-bold">20%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tesouro Selic • Reserva de Emergência</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold block">Missão Cumprida</span>
+<span class="font-numeric-data text-numeric-data text-primary font-bold">100%</span>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between items-baseline">
+<span class="font-numeric-hero-mobile text-numeric-hero-mobile text-primary font-bold">R$ 540,00</span>
+<span class="font-body-md text-body-md text-primary font-medium">Alocados no Tesouro</span>
+</div>
+<!-- Barra de Progresso 100% Neon Emerald -->
+<div class="h-2.5 w-full rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full rounded-full bg-primary transition-all duration-700 shadow-sm" style="width: 100%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+          Direcionado para a Base Segura
+        </span>
+<span class="font-label-caps text-label-caps text-primary font-semibold">+80 XP</span>
+</div>
+</div>
+</div>
+<!-- 5. CARD DE PROVÉRBIOS 13:4 & SABEDORIA -->
+<div class="rounded-xl bg-surface-container-high p-space-md shadow-md flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-tertiary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[20px]">auto_stories</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-caps text-label-caps text-tertiary uppercase font-bold tracking-wider">Sabedoria Milenar</span>
+<p class="font-body-sm text-body-sm text-on-surface mt-1 italic leading-relaxed">
+        "O preguiçoso deseja e nada tem, mas o desejo dos diligentes é plenamente satisfeito."
+      </p>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1.5 font-medium">— Provérbios 13:4</span>
+</div>
+</div>
+<!-- 6. BOTÃO DE AÇÃO CTA VERDE NEON VIBRANTE COM FEEDBACK INTERATIVO -->
+<div class="pt-space-xs pb-space-lg">
+<button class="w-full h-14 rounded-xl bg-primary active:bg-primary-container text-on-primary font-headline-md text-headline-md font-bold flex items-center justify-center gap-2 shadow-xl shadow-primary/20 transition-all transform active:scale-[0.98]" id="btnSyncSnowballPotes" type="button">
+<span class="material-symbols-outlined text-[24px]">task_alt</span>
+<span>Confirmar Divisão e Sincronizar Potes</span>
+</button>
+<p class="font-body-sm text-body-sm text-center text-on-surface-variant mt-2">
+      Gera conciliação automática com o plano Bola de Neve.
+    </p>
+</div>
+</div>
+<!-- Micro-interações táteis e feedback auditivo visual -->
+<script>
+  (function() {
+    const btnSync = document.getElementById('btnSyncSnowballPotes');
+    const toggleOF = document.getElementById('btnToggleOpenFinance');
+    const toggleDizimo = document.getElementById('btnToggleDizimo');
+    const btnManual = document.getElementById('btnInsertManual');
+
+    if (btnSync) {
+      btnSync.addEventListener('click', function() {
+        const originalText = btnSync.innerHTML;
+        btnSync.innerHTML = '<span class="material-symbols-outlined animate-spin text-[22px]">sync</span><span>Sincronizando Potes...</span>';
+        btnSync.classList.add('opacity-85');
+        
+        setTimeout(function() {
+          btnSync.innerHTML = '<span class="material-symbols-outlined text-[24px]">done_all</span><span>Potes Sincronizados com Sucesso!</span>';
+          btnSync.classList.remove('opacity-85');
+          
+          setTimeout(function() {
+            btnSync.innerHTML = originalText;
+          }, 2400);
+        }, 1100);
+      });
+    }
+
+    if (toggleOF) {
+      let active = true;
+      toggleOF.addEventListener('click', function() {
+        active = !active;
+        const knob = toggleOF.querySelector('span');
+        if (active) {
+          toggleOF.classList.remove('bg-surface-container-highest');
+          toggleOF.classList.add('bg-primary');
+          knob.classList.remove('translate-x-0');
+          knob.classList.add('translate-x-5');
+        } else {
+          toggleOF.classList.remove('bg-primary');
+          toggleOF.classList.add('bg-surface-container-highest');
+          knob.classList.remove('translate-x-5');
+          knob.classList.add('translate-x-0');
+        }
+      });
+    }
+
+    if (toggleDizimo) {
+      let dizimoActive = true;
+      toggleDizimo.addEventListener('click', function() {
+        dizimoActive = !dizimoActive;
+        const knob = toggleDizimo.querySelector('span');
+        if (dizimoActive) {
+          toggleDizimo.classList.remove('bg-surface-container-highest');
+          toggleDizimo.classList.add('bg-tertiary');
+          knob.classList.remove('translate-x-0');
+          knob.classList.add('translate-x-5');
+        } else {
+          toggleDizimo.classList.remove('bg-tertiary');
+          toggleDizimo.classList.add('bg-surface-container-highest');
+          knob.classList.remove('translate-x-5');
+          knob.classList.add('translate-x-0');
+        }
+      });
+    }
+
+    if (btnManual) {
+      btnManual.addEventListener('click', function() {
+        btnManual.classList.add('scale-95');
+        setTimeout(() => btnManual.classList.remove('scale-95'), 150);
+      });
+    }
+  })();
+</script>
+</main>
+<!-- Barra Inferior de Navegação Tática (5 Abas) -->
+<nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.5)] border-t border-white/[0.04]" data-active-classes="text-primary font-semibold">
+<div class="grid grid-cols-5 items-center h-20 px-1">
+<!-- 1. Mentor -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="mentor" href="#">
+<span class="material-symbols-outlined text-[23px]">support_agent</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Mentor</span>
+</a>
+<!-- 2. Potes -->
+<a aria-current="page" class="flex flex-col items-center justify-center gap-1 py-1 transition-colors min-h-[44px] text-primary font-semibold" data-path="potes" href="#">
+<span class="material-symbols-outlined text-[23px]">pie_chart</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Potes</span>
+</a>
+<!-- 3. Guerra -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="guerra" href="#">
+<span class="material-symbols-outlined text-[23px]">swords</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Guerra</span>
+</a>
+<!-- 4. Escudo & XP -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="escudo-e-xp" href="#">
+<span class="material-symbols-outlined text-[23px]">security</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Escudo &amp; XP</span>
+</a>
+<!-- 5. Bola de Neve -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="bola-de-neve" href="#">
+<span class="material-symbols-outlined text-[23px]">trending_up</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Bola Neve</span>
+</a>
+</div>
+</nav>
+
+<nav class="bn-global-nav" aria-label="Navegação principal">
+  <a href="potes.html" class="active"><span>◈</span><small>Potes</small></a>
+  <a href="guerra.html" class=""><span>⚔</span><small>Dívidas</small></a>
+  <a href="escudo.html" class=""><span>✦</span><small>Escudo & XP</small></a>
+</nav>
+<div id="bn-global-toast" role="status" aria-live="polite"></div>
+<style>
+.bn-global-nav{position:fixed;z-index:9999;bottom:0;left:0;right:0;display:flex;justify-content:space-around;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(7,13,31,.96);border-top:1px solid rgba(134,148,138,.25);backdrop-filter:blur(18px)}
+.bn-global-nav a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 5px;border-radius:12px;text-decoration:none;color:#bbcabf;font:600 12px 'Plus Jakarta Sans',sans-serif;transition:.2s}
+.bn-global-nav a span{font-size:17px}.bn-global-nav a.active{background:rgba(78,222,163,.13);color:#4edea3;box-shadow:inset 0 0 0 1px rgba(78,222,163,.2)}
+#bn-global-toast{position:fixed;z-index:10000;bottom:82px;left:50%;transform:translate(-50%,15px);opacity:0;pointer-events:none;background:#191f31;color:#dce1fb;border:1px solid rgba(78,222,163,.35);padding:10px 16px;border-radius:12px;font:500 13px 'Plus Jakarta Sans',sans-serif;transition:.25s;max-width:90vw;text-align:center}
+#bn-global-toast.show{opacity:1;transform:translate(-50%,0)} body{padding-bottom:76px!important}
+</style>
+<script>
+(function(){
+ const KEY='bolaDeNeve.shared.v1';
+ const defaults={meta:30000,reserva:0,xp:0,dividas:1200,estrategia:'snowball',potes:{}};
+ function read(){try{return Object.assign({},defaults,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){return Object.assign({},defaults)}}
+ function save(patch){const state=Object.assign(read(),patch);localStorage.setItem(KEY,JSON.stringify(state));window.dispatchEvent(new CustomEvent('bn:state',{detail:state}));return state}
+ window.BolaDeNeve={getState:read,update:save};
+ const toast=document.getElementById('bn-global-toast');
+ window.BolaDeNeve.notify=function(msg){if(!toast)return;toast.textContent=msg;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2300)};
+ window.addEventListener('storage',e=>{if(e.key===KEY)window.dispatchEvent(new CustomEvent('bn:state',{detail:read()}))});
+ function paint(){const s=read();document.querySelectorAll('[data-bn]').forEach(el=>{const k=el.dataset.bn;if(k in s)el.textContent=typeof s[k]==='number'?s[k].toLocaleString('pt-BR'):s[k]})}
+ paint();window.addEventListener('bn:state',paint);
+})();
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const sync=document.getElementById('btnSyncSnowballPotes');
+ const manual=document.getElementById('btnInsertManual');
+ if(sync) sync.addEventListener('click',()=>{const s=BolaDeNeve.getState();BolaDeNeve.update({potes:{...s.potes,sincronizado:true,ultimaSincronizacao:new Date().toISOString()}});BolaDeNeve.notify('Divisão dos potes registrada para as outras telas.');});
+ if(manual) manual.addEventListener('click',()=>{const s=BolaDeNeve.getState();BolaDeNeve.update({xp:s.xp+10});BolaDeNeve.notify('+10 XP registrado na jornada!');});
+});
+</script>
+
+</body></html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<title>Bola de Neve | Guerra das Dívidas</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#acedff",
+            "on-tertiary-container": "#523200",
+            "surface-variant": "#2e3447",
+            "tertiary-container": "#e29100",
+            "tertiary-fixed": "#ffddb8",
+            "on-tertiary": "#472a00",
+            "on-secondary-fixed": "#001f26",
+            "tertiary-fixed-dim": "#ffb95f",
+            "surface-dim": "#0c1324",
+            "background": "#0c1324",
+            "primary-fixed-dim": "#4edea3",
+            "on-background": "#dce1fb",
+            "primary-container": "#10b981",
+            "surface-bright": "#33394c",
+            "on-error": "#690005",
+            "primary": "#4edea3",
+            "on-secondary-fixed-variant": "#004e5c",
+            "surface-container-low": "#151b2d",
+            "on-primary-container": "#00422b",
+            "secondary": "#4cd7f6",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#005236",
+            "surface-container-lowest": "#070d1f",
+            "on-secondary": "#003640",
+            "tertiary": "#ffb95f",
+            "surface-tint": "#4edea3",
+            "on-secondary-container": "#00424e",
+            "error-container": "#93000a",
+            "primary-fixed": "#6ffbbe",
+            "on-tertiary-fixed-variant": "#653e00",
+            "inverse-primary": "#006c49",
+            "inverse-surface": "#dce1fb",
+            "surface-container": "#191f31",
+            "outline-variant": "#3c4a42",
+            "on-primary-fixed": "#002113",
+            "surface": "#0c1324",
+            "on-surface-variant": "#bbcabf",
+            "inverse-on-surface": "#2a3043",
+            "on-surface": "#dce1fb",
+            "on-tertiary-fixed": "#2a1700",
+            "on-primary": "#003824",
+            "error": "#ffb4ab",
+            "surface-container-high": "#23293c",
+            "secondary-container": "#03b5d3",
+            "outline": "#86948a",
+            "secondary-fixed-dim": "#4cd7f6",
+            "surface-container-highest": "#2e3447"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter": "1rem",
+            "gutter-tablet": "1.5rem",
+            "margin": "1rem",
+            "margin-tablet": "2rem"
+          },
+          fontFamily: {
+            "label-caps": ["JetBrains Mono"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "numeric-hero": ["JetBrains Mono"],
+            "numeric-hero-mobile": ["JetBrains Mono"],
+            "numeric-data": ["JetBrains Mono"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label-caps": ["11px", { lineHeight: "14px", letterSpacing: "0.06em", fontWeight: "500" }],
+            "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }],
+            "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0", fontWeight: "400" }],
+            "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "numeric-hero": ["32px", { lineHeight: "40px", letterSpacing: "-0.03em", fontWeight: "700" }],
+            "numeric-hero-mobile": ["26px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "numeric-data": ["15px", { lineHeight: "20px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "headline-lg": ["26px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "display-lg-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.025em", fontWeight: "800" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+        background-color: #0c1324;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+      main > :first-child {
+        margin-top: 0 !important;
+      }
+      main > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md flex flex-col min-h-screen">
+<!-- Header Superior Fixo com Status da Jornada e Streak -->
+<header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl pt-safe shadow-[0_1px_12px_rgba(0,0,0,0.35)]">
+<div class="h-16 px-margin flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">bubble_chart</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider truncate">Bola de Neve</span>
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight truncate leading-tight">Guerra</h1>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<div class="flex items-center gap-1 bg-surface-container-high/80 px-2 py-1 rounded-full border border-surface-container-highest/60">
+<span class="material-symbols-outlined text-tertiary text-[16px]">local_fire_department</span>
+<span class="font-numeric-data text-numeric-data text-tertiary font-bold">14d</span>
+</div>
+<div class="flex items-center gap-1 bg-primary/10 px-2.5 py-1 rounded-full border border-primary/25">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold">Base Blindada</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0 ml-1">
+<span class="material-symbols-outlined text-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Conteúdo Principal -->
+<main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen">
+<div class="flex flex-col w-full px-margin space-y-space-md pb-space-xl">
+<!-- 1. Header & Status Tático -->
+<section class="flex flex-col pt-space-sm space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-container/20 shadow-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider font-semibold">MODO RESGATE ATIVO</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[13px] text-primary">verified</span>
+<span>PLANO BLINDADO</span>
+</div>
+</div>
+<div class="space-y-1">
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Mapa de Guerra: Expurgando Dívidas</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Cada real direcionado aqui destrói juros e resgata dias de paz para a sua família.
+      </p>
+</div>
+</section>
+<!-- 2. Banner Central - Cronômetro de Vitória Total -->
+<section class="relative overflow-hidden rounded-xl bg-gradient-to-b from-surface-container-high via-surface-container to-surface-container-low p-space-md shadow-xl">
+<div class="absolute -right-12 -top-12 w-44 h-44 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-10 bottom-0 w-36 h-36 rounded-full bg-secondary/10 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">flag</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">DATA ESTIMADA DA SUA LIBERDADE</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary/15 font-label-caps text-label-caps text-primary font-bold">FASE 1</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">14 de Novembro de 2026</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-numeric-hero-mobile text-numeric-hero-mobile text-primary tracking-tight font-extrabold" id="days-counter">628 dias</span>
+<span class="font-body-md text-body-md text-on-surface-variant">restantes para o zero absoluto</span>
+</div>
+</div>
+<!-- Métricas em Grade -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-lowest/80 shadow-inner">
+<span class="font-label-caps text-label-caps text-on-surface-variant">TOTAL DE PASSIVO</span>
+<span class="font-numeric-data text-numeric-data text-error font-bold mt-0.5">R$ 14.850,00</span>
+<span class="font-body-sm text-[11px] text-outline mt-0.5">3 frentes abertas</span>
+</div>
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-lowest/80 shadow-inner">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ECONOMIA DE JUROS</span>
+<span class="font-numeric-data text-numeric-data text-primary font-bold mt-0.5">+ R$ 6.320,00</span>
+<span class="font-body-sm text-[11px] text-primary/80 mt-0.5">poupados no plano</span>
+</div>
+</div>
+<!-- Micro-feedback Dinâmico -->
+<div class="flex items-center gap-2 p-2 rounded-lg bg-secondary/10 text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0">bolt</span>
+<p class="font-body-sm text-body-sm text-secondary leading-snug">
+          Injetar qualquer XP extra adianta esta data automaticamente.
+        </p>
+</div>
+</div>
+</section>
+<!-- 3. Seletor Tático de Estratégia -->
+<section class="flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between px-0.5">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Estratégia de Expurgo</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">tune</span>
+</div>
+<!-- Segmented Tab Controls -->
+<div class="grid grid-cols-2 p-1 rounded-xl bg-surface-container-lowest gap-1 shadow-inner" id="strategy-tabs">
+<button class="flex flex-col items-center justify-center p-2 rounded-lg bg-surface-container-high text-on-surface shadow-sm transition-all duration-200 text-left" id="tab-snowball" onclick="switchStrategy('snowball')" type="button">
+<div class="flex items-center gap-1 font-body-md text-body-md font-bold text-primary">
+<span>🎯 Bola de Neve</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase mt-0.5">Menor Valor Primeiro</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg bg-transparent text-on-surface-variant hover:text-on-surface transition-all duration-200 text-left" id="tab-avalanche" onclick="switchStrategy('avalanche')" type="button">
+<div class="flex items-center gap-1 font-body-md text-body-md font-bold">
+<span>⚡ Avalanche</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase mt-0.5">Maior Juro Primeiro</span>
+</button>
+</div>
+<!-- Tab Dynamic Context Panes -->
+<div class="p-space-sm rounded-xl bg-surface-container-low shadow-sm space-y-1.5 transition-all" id="snowball-desc">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary font-label-caps text-label-caps font-bold">RECOMENDADO PELO MENTOR PSICOLÓGICO</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+        Derruba os inimigos menores primeiro para liberar alívio mental rápido e gerar momentum de vitória.
+      </p>
+</div>
+<div class="hidden p-space-sm rounded-xl bg-surface-container-low shadow-sm space-y-1.5 transition-all" id="avalanche-desc">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-secondary/20 text-secondary font-label-caps text-label-caps font-bold">EFICIÊNCIA MATEMÁTICA PURA</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+        Ataca a maior taxa de juros do mercado para estancar o sangramento mais caro e encurtar o montante total pago.
+      </p>
+</div>
+</section>
+<!-- 4. Lista Ranqueada das Dívidas ('Fila de Alvos') -->
+<section class="flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">crisis_alert</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Fila de Alvos</h3>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">PRIORIDADE TÁTICA</span>
+</div>
+<!-- Alvo #1: Nubank (Foco Total / Na Mira) -->
+<article class="relative overflow-hidden rounded-xl bg-gradient-to-br from-surface-container-highest via-surface-container-high to-surface-container p-space-md shadow-lg space-y-space-sm">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary"></div>
+<div class="flex items-start justify-between pl-1">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary font-numeric-data text-numeric-data font-bold">
+            #1
+          </div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface">Cartão Nubank</h4>
+</div>
+<span class="font-label-caps text-label-caps text-error font-medium">Juros: 14,2% a.m. (Rotativo Crítico)</span>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-caps text-label-caps font-bold shadow-sm">
+          🎯 Na Mira
+        </div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pl-1">
+<div class="p-2 rounded-lg bg-surface-container-lowest/80">
+<span class="font-label-caps text-label-caps text-on-surface-variant">SALDO RESTANTE</span>
+<div class="font-numeric-hero-mobile text-numeric-hero-mobile text-on-surface font-bold">R$ 1.850,00</div>
+</div>
+<div class="p-2 rounded-lg bg-primary/10">
+<span class="font-label-caps text-label-caps text-primary">APORTE FOCADO</span>
+<div class="font-numeric-hero-mobile text-numeric-hero-mobile text-primary font-bold">R$ 450,00<span class="font-body-sm text-[12px] font-normal">/mês</span></div>
+</div>
+</div>
+<!-- Barra de Abate / Progresso -->
+<div class="space-y-1.5 pl-1">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-label-caps text-label-caps text-on-surface font-semibold">Abate do Alvo: 58% concluído</span>
+<span class="font-label-caps text-label-caps text-primary font-bold">Quitação em 4 meses</span>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden p-0.5">
+<div class="h-full rounded-full bg-gradient-to-r from-primary-container to-primary transition-all duration-500" style="width: 58%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 pl-1">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">R$ 2.550,00 já aniquilados</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary font-label-caps text-label-caps font-bold hover:opacity-90 active:scale-95 transition-all shadow-sm" type="button">
+          EXPURGAR +R$ 50
+        </button>
+</div>
+</article>
+<!-- Alvo #2: Cheque Especial BB (Em Espera / Congelado) -->
+<article class="relative overflow-hidden rounded-xl bg-surface-container p-space-md shadow-md space-y-space-xs">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-secondary"></div>
+<div class="flex items-start justify-between pl-1">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant font-numeric-data text-numeric-data font-bold">
+            #2
+          </div>
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface">Cheque Especial BB</h4>
+<span class="font-label-caps text-label-caps text-on-surface-variant font-medium">Juros: 8,0% a.m.</span>
+</div>
+</div>
+<div class="px-2 py-0.5 rounded-full bg-secondary/15 text-secondary font-label-caps text-label-caps font-bold">
+          🛡️ Congelado / Acordo Procon
+        </div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest/60 pl-2">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">SALDO CONGELADO</span>
+<span class="font-numeric-data text-numeric-data text-on-surface font-bold">R$ 3.200,00</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-secondary font-semibold">PARCELA MÍNIMA ACORDADA</span>
+<span class="font-numeric-data text-numeric-data text-on-surface font-bold">R$ 110,00/mês</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-1">
+        Contrato estabilizado sem incidência de juros punitivos enquanto mantido o pagamento mínimo.
+      </p>
+</article>
+<!-- Alvo #3: Empréstimo Pessoal Itaú (Aguardando Alvo 1) -->
+<article class="relative overflow-hidden rounded-xl bg-surface-container p-space-md shadow-md space-y-space-xs opacity-90">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-outline-variant"></div>
+<div class="flex items-start justify-between pl-1">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-outline font-numeric-data text-numeric-data font-bold">
+            #3
+          </div>
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface">Empréstimo Pessoal Itaú</h4>
+<span class="font-label-caps text-label-caps text-on-surface-variant font-medium">Juros: 3,9% a.m.</span>
+</div>
+</div>
+<div class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] font-bold">
+          ⏳ Na Espera do Alvo #1
+        </div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest/60 pl-2">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">SALDO EM ABERTO</span>
+<span class="font-numeric-data text-numeric-data text-on-surface font-bold">R$ 9.800,00</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-on-surface-variant">PARCELA FIXA</span>
+<span class="font-numeric-data text-numeric-data text-on-surface font-bold">R$ 340,00/mês</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant pl-1">
+<span class="material-symbols-outlined text-[15px] text-outline">hourglass_empty</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Assim que o Nubank cair, R$ 450/mês serão somados a este abate.</span>
+</div>
+</article>
+</section>
+<!-- 5. Ações Rápidas & Escudo Jurídico -->
+<section class="flex flex-col space-y-space-sm pt-space-xs">
+<!-- Botão Primário Cadastrar Nova Dívida / Reavaliar -->
+<button class="w-full h-13 py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-headline-md text-headline-md font-bold flex items-center justify-center gap-2 shadow-lg hover:brightness-105 active:scale-[0.98] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">add_circle</span>
+<span>Cadastrar Nova Dívida / Reavaliar Acordo</span>
+</button>
+<!-- Atalho Jurídico em Destaque: Lei 14.181/2021 -->
+<div class="p-space-md rounded-xl bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-high shadow-md space-y-space-xs">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-secondary/15 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[22px]">gavel</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-secondary uppercase font-bold tracking-wider">PROTEÇÃO LEGAL ATIVA</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/30 text-tertiary font-label-caps text-[10px]">SOS DIREITO</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface font-bold mt-0.5">Enquadrar no Superendividamento</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">
+            Seus juros ultrapassam o limite digno? A <strong>Lei 14.181/2021</strong> garante renegociação unificada preservando o mínimo existencial da sua família.
+          </p>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between">
+<a class="inline-flex items-center gap-1.5 font-label-caps text-label-caps font-bold text-secondary hover:text-secondary-fixed transition-colors" href="#sos-juridico">
+<span>ABRIR PROTOCOLO DE DEFESA SOS</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<span class="font-label-caps text-[10px] text-outline">GRATUITO</span>
+</div>
+</div>
+</section>
+</div>
+<script>
+  function switchStrategy(strat) {
+    const btnSnowball = document.getElementById('tab-snowball');
+    const btnAvalanche = document.getElementById('tab-avalanche');
+    const descSnowball = document.getElementById('snowball-desc');
+    const descAvalanche = document.getElementById('avalanche-desc');
+
+    if (strat === 'snowball') {
+      btnSnowball.className = 'flex flex-col items-center justify-center p-2 rounded-lg bg-surface-container-high text-on-surface shadow-sm transition-all duration-200 text-left';
+      btnAvalanche.className = 'flex flex-col items-center justify-center p-2 rounded-lg bg-transparent text-on-surface-variant hover:text-on-surface transition-all duration-200 text-left';
+      descSnowball.classList.remove('hidden');
+      descAvalanche.classList.add('hidden');
+    } else {
+      btnAvalanche.className = 'flex flex-col items-center justify-center p-2 rounded-lg bg-surface-container-high text-on-surface shadow-sm transition-all duration-200 text-left';
+      btnSnowball.className = 'flex flex-col items-center justify-center p-2 rounded-lg bg-transparent text-on-surface-variant hover:text-on-surface transition-all duration-200 text-left';
+      descAvalanche.classList.remove('hidden');
+      descSnowball.classList.add('hidden');
+    }
+  }
+</script>
+</main>
+<!-- Barra Inferior de Navegação Tática (5 Abas) -->
+<nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.5)] border-t border-white/[0.04]" data-active-classes="text-primary font-semibold">
+<div class="grid grid-cols-5 items-center h-20 px-1">
+<!-- 1. Mentor -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="mentor" href="#">
+<span class="material-symbols-outlined text-[23px]">support_agent</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Mentor</span>
+</a>
+<!-- 2. Potes -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="potes" href="#">
+<span class="material-symbols-outlined text-[23px]">pie_chart</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Potes</span>
+</a>
+<!-- 3. Guerra -->
+<a aria-current="page" class="flex flex-col items-center justify-center gap-1 py-1 transition-colors min-h-[44px] text-primary font-semibold" data-path="guerra" href="#">
+<span class="material-symbols-outlined text-[23px]">swords</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Guerra</span>
+</a>
+<!-- 4. Escudo & XP -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="escudo-e-xp" href="#">
+<span class="material-symbols-outlined text-[23px]">security</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Escudo &amp; XP</span>
+</a>
+<!-- 5. Bola de Neve -->
+<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="bola-de-neve" href="#">
+<span class="material-symbols-outlined text-[23px]">trending_up</span>
+<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Bola Neve</span>
+</a>
+</div>
+</nav>
+
+<nav class="bn-global-nav" aria-label="Navegação principal">
+  <a href="potes.html" class=""><span>◈</span><small>Potes</small></a>
+  <a href="guerra.html" class="active"><span>⚔</span><small>Dívidas</small></a>
+  <a href="escudo.html" class=""><span>✦</span><small>Escudo & XP</small></a>
+</nav>
+<div id="bn-global-toast" role="status" aria-live="polite"></div>
+<style>
+.bn-global-nav{position:fixed;z-index:9999;bottom:0;left:0;right:0;display:flex;justify-content:space-around;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(7,13,31,.96);border-top:1px solid rgba(134,148,138,.25);backdrop-filter:blur(18px)}
+.bn-global-nav a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 5px;border-radius:12px;text-decoration:none;color:#bbcabf;font:600 12px 'Plus Jakarta Sans',sans-serif;transition:.2s}
+.bn-global-nav a span{font-size:17px}.bn-global-nav a.active{background:rgba(78,222,163,.13);color:#4edea3;box-shadow:inset 0 0 0 1px rgba(78,222,163,.2)}
+#bn-global-toast{position:fixed;z-index:10000;bottom:82px;left:50%;transform:translate(-50%,15px);opacity:0;pointer-events:none;background:#191f31;color:#dce1fb;border:1px solid rgba(78,222,163,.35);padding:10px 16px;border-radius:12px;font:500 13px 'Plus Jakarta Sans',sans-serif;transition:.25s;max-width:90vw;text-align:center}
+#bn-global-toast.show{opacity:1;transform:translate(-50%,0)} body{padding-bottom:76px!important}
+</style>
+<script>
+(function(){
+ const KEY='bolaDeNeve.shared.v1';
+ const defaults={meta:30000,reserva:0,xp:0,dividas:1200,estrategia:'snowball',potes:{}};
+ function read(){try{return Object.assign({},defaults,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){return Object.assign({},defaults)}}
+ function save(patch){const state=Object.assign(read(),patch);localStorage.setItem(KEY,JSON.stringify(state));window.dispatchEvent(new CustomEvent('bn:state',{detail:state}));return state}
+ window.BolaDeNeve={getState:read,update:save};
+ const toast=document.getElementById('bn-global-toast');
+ window.BolaDeNeve.notify=function(msg){if(!toast)return;toast.textContent=msg;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2300)};
+ window.addEventListener('storage',e=>{if(e.key===KEY)window.dispatchEvent(new CustomEvent('bn:state',{detail:read()}))});
+ function paint(){const s=read();document.querySelectorAll('[data-bn]').forEach(el=>{const k=el.dataset.bn;if(k in s)el.textContent=typeof s[k]==='number'?s[k].toLocaleString('pt-BR'):s[k]})}
+ paint();window.addEventListener('bn:state',paint);
+})();
+</script>
+
+
+<script>
+(function(){
+ const original=window.switchStrategy;
+ window.switchStrategy=function(strategy){if(typeof original==='function')original(strategy);BolaDeNeve.update({estrategia:strategy});BolaDeNeve.notify('Estratégia compartilhada: '+(strategy==='snowball'?'Bola de Neve':'Avalanche'))};
+})();
+</script>
+
+</body></html>
