@@ -1,10 +1,10 @@
+<!doctype html>
 <!DOCTYPE html>
 
 <html class="dark" lang="pt-BR"><head>
-<title>Bola de Neve | Escudo & XP</title>
+<title>Bola de Neve | Escudo &amp; XP</title>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
-
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -146,7 +146,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+<link href="app.css" rel="stylesheet"/></head>
 <body class="bg-surface text-on-surface font-body-md flex flex-col min-h-screen">
 <!-- Header Superior Fixo com Status da Jornada e Streak -->
 <header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl pt-safe shadow-[0_1px_12px_rgba(0,0,0,0.35)]">
@@ -514,88 +514,13 @@
 </section>
 </div>
 </div>
-<script>
-  // Microinteração para o acelerador de escudo
-  document.addEventListener('DOMContentLoaded', () => {
-    const btnAcelerar = document.getElementById('btn-acelerar');
-    if (btnAcelerar) {
-      btnAcelerar.addEventListener('click', () => {
-        btnAcelerar.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">sync</span> Alocando R$ 150...';
-        setTimeout(() => {
-          btnAcelerar.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span> Escudo Acelerado com Sucesso!';
-          btnAcelerar.classList.remove('bg-primary', 'text-on-primary');
-          btnAcelerar.classList.add('bg-primary-container', 'text-on-primary-container');
-        }, 800);
-      });
-    }
-  });
-</script>
+
 </main>
 <!-- Barra Inferior de Navegação Tática (5 Abas) -->
-<nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.5)] border-t border-white/[0.04]" data-active-classes="text-primary font-semibold">
-<div class="grid grid-cols-5 items-center h-20 px-1">
-<!-- 1. Mentor -->
-<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="mentor" href="#">
-<span class="material-symbols-outlined text-[23px]">support_agent</span>
-<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Mentor</span>
-</a>
-<!-- 2. Potes -->
-<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="potes" href="#">
-<span class="material-symbols-outlined text-[23px]">pie_chart</span>
-<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Potes</span>
-</a>
-<!-- 3. Guerra -->
-<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="guerra" href="#">
-<span class="material-symbols-outlined text-[23px]">swords</span>
-<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Guerra</span>
-</a>
-<!-- 4. Escudo & XP -->
-<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="escudo-e-xp" href="#">
-<span class="material-symbols-outlined text-[23px]">security</span>
-<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Escudo &amp; XP</span>
-</a>
-<!-- 5. Bola de Neve -->
-<a class="flex flex-col items-center justify-center gap-1 py-1 text-on-surface-variant transition-colors min-h-[44px]" data-path="bola-de-neve" href="#">
-<span class="material-symbols-outlined text-[23px]">trending_up</span>
-<span class="font-label-caps text-[10px] tracking-tight leading-none text-center truncate max-w-[62px]">Bola Neve</span>
-</a>
-</div>
-</nav>
-
-<nav class="bn-global-nav" aria-label="Navegação principal">
-  <a href="potes.html" class=""><span>◈</span><small>Potes</small></a>
-  <a href="guerra.html" class=""><span>⚔</span><small>Dívidas</small></a>
-  <a href="escudo.html" class="active"><span>✦</span><small>Escudo & XP</small></a>
-</nav>
-<div id="bn-global-toast" role="status" aria-live="polite"></div>
-<style>
-.bn-global-nav{position:fixed;z-index:9999;bottom:0;left:0;right:0;display:flex;justify-content:space-around;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(7,13,31,.96);border-top:1px solid rgba(134,148,138,.25);backdrop-filter:blur(18px)}
-.bn-global-nav a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 5px;border-radius:12px;text-decoration:none;color:#bbcabf;font:600 12px 'Plus Jakarta Sans',sans-serif;transition:.2s}
-.bn-global-nav a span{font-size:17px}.bn-global-nav a.active{background:rgba(78,222,163,.13);color:#4edea3;box-shadow:inset 0 0 0 1px rgba(78,222,163,.2)}
-#bn-global-toast{position:fixed;z-index:10000;bottom:82px;left:50%;transform:translate(-50%,15px);opacity:0;pointer-events:none;background:#191f31;color:#dce1fb;border:1px solid rgba(78,222,163,.35);padding:10px 16px;border-radius:12px;font:500 13px 'Plus Jakarta Sans',sans-serif;transition:.25s;max-width:90vw;text-align:center}
-#bn-global-toast.show{opacity:1;transform:translate(-50%,0)} body{padding-bottom:76px!important}
-</style>
-<script>
-(function(){
- const KEY='bolaDeNeve.shared.v1';
- const defaults={meta:30000,reserva:0,xp:0,dividas:1200,estrategia:'snowball',potes:{}};
- function read(){try{return Object.assign({},defaults,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){return Object.assign({},defaults)}}
- function save(patch){const state=Object.assign(read(),patch);localStorage.setItem(KEY,JSON.stringify(state));window.dispatchEvent(new CustomEvent('bn:state',{detail:state}));return state}
- window.BolaDeNeve={getState:read,update:save};
- const toast=document.getElementById('bn-global-toast');
- window.BolaDeNeve.notify=function(msg){if(!toast)return;toast.textContent=msg;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2300)};
- window.addEventListener('storage',e=>{if(e.key===KEY)window.dispatchEvent(new CustomEvent('bn:state',{detail:read()}))});
- function paint(){const s=read();document.querySelectorAll('[data-bn]').forEach(el=>{const k=el.dataset.bn;if(k in s)el.textContent=typeof s[k]==='number'?s[k].toLocaleString('pt-BR'):s[k]})}
- paint();window.addEventListener('bn:state',paint);
-})();
-</script>
 
 
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
- const btn=document.getElementById('btn-acelerar');
- if(btn)btn.addEventListener('click',()=>{const s=BolaDeNeve.getState();BolaDeNeve.update({reserva:s.reserva+150,xp:s.xp+50});BolaDeNeve.notify('Escudo atualizado: +R$ 150 e +50 XP.');});
-});
-</script>
 
-</body></html>
+
+
+
+<nav aria-label="Navegação principal" class="bn-global-nav"><a href="index.html"><span>⌂</span><small>Início</small></a><a href="potes.html"><span>◈</span><small>Potes</small></a><a href="guerra.html"><span>⚔</span><small>Dívidas</small></a><a aria-current="page" class="active" href="escudo.html"><span>✦</span><small>Escudo &amp; XP</small></a></nav><script src="app.js"></script><style>.bn-global-nav{position:fixed;z-index:9999;bottom:0;left:0;right:0;display:flex;gap:6px;padding:9px 8px calc(9px + env(safe-area-inset-bottom));background:rgba(7,13,31,.97);border-top:1px solid rgba(134,148,138,.25);backdrop-filter:blur(18px)}.bn-global-nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:7px 3px;border-radius:10px;text-decoration:none;color:#bbcabf;font:600 11px Arial,sans-serif}.bn-global-nav a span{font-size:17px}.bn-global-nav a.active{background:rgba(78,222,163,.13);color:#4edea3}body{padding-bottom:82px!important}</style></body></html>

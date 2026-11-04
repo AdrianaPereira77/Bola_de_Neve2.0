@@ -1,31 +1,33 @@
-# Bola de Neve — projeto integrado
+# Bola de Neve 2.0 — versão funcional local
 
-As três telas do Stitch foram reunidas em um único projeto navegável:
+## Publicar na Vercel
+Este projeto é estático (HTML, CSS e JavaScript). Coloque todos os arquivos na raiz do repositório e importe o repositório na Vercel.
 
-- `potes.html` — Potes & Open Finance
-- `guerra.html` — Guerra das Dívidas
-- `escudo.html` — Escudo & XP
-- `index.html` — página inicial
+- Framework Preset: **Other**
+- Build Command: deixar em branco
+- Output Directory: `.`
+- Install Command: deixar em branco
 
-## Como testar
-Abra `index.html` no navegador. Para uma experiência mais próxima de hospedagem, use a extensão **Live Server** do VS Code e clique em **Go Live**.
+## Arquivos
+- `index.html`: página inicial
+- `potes.html`: renda, percentuais dos potes, dízimo e validação da divisão
+- `guerra.html`: cadastro, ordenação, pagamento e exclusão de dívidas; estratégias Bola de Neve e Avalanche
+- `escudo.html`: meta da reserva, saldo, registro de aportes e XP
+- `app.js`: regras, cálculos e persistência compartilhada
+- `app.css`: estilos do painel funcional
 
-## Como publicar no GitHub
-1. Crie um repositório vazio no GitHub.
-2. Extraia esta pasta no computador.
-3. Abra a pasta no VS Code.
-4. No terminal, execute:
+## O que funciona
+- Dados compartilhados entre as páginas no mesmo navegador e domínio via `localStorage`.
+- Edição da renda, distribuição percentual e meta/saldo da reserva.
+- Cadastro e exclusão de dívidas, registro de pagamentos e ordenação por menor saldo ou maior juros.
+- Registro de aportes com valor informado pelo usuário; o saldo não aumenta sozinho.
+- XP gerado por ações registradas.
 
-```bash
-git init
-git add .
-git commit -m "Integra as três telas do Bola de Neve"
-git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-git push -u origin main
-```
+## Limitações importantes
+- Open Finance é apenas um indicador visual/simulação. Não existe conexão com bancos, APIs ou compartilhamento de credenciais.
+- Os dados ficam somente no navegador/dispositivo atual. Não há login, banco de dados, backup automático ou sincronização entre dispositivos.
+- Algumas ilustrações e textos originais das telas ainda são conteúdo demonstrativo; use o **Painel Funcional** como fonte dos valores editáveis e cálculos reais.
+- A versão não substitui orientação financeira profissional.
 
-Substitua a URL do `git remote add origin` pela URL do seu repositório.
-
-## Observação sobre os dados
-Foi incluída uma camada inicial de estado compartilhado via `localStorage`, para que as telas conversem no mesmo navegador. Os dados ficam salvos apenas no navegador/dispositivo; ainda não há banco de dados, login ou sincronização entre dispositivos. Os conectores Open Finance também são apenas parte visual, não uma conexão bancária real.
+## Teste local
+Abra `index.html` em um navegador ou use um servidor estático local. Para validar a persistência, cadastre uma dívida em `guerra.html`, navegue para outra página e confira os indicadores do painel.
