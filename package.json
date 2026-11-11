@@ -1,0 +1,9 @@
+{
+  "name": "bola-de-neve",
+  "version": "1.0.0",
+  "description": "App de gestão financeira com regra dos 3 potes e juros compostos",
+  "main": "api/calcular.js",
+  "scripts": {
+    "start": "vercel dev"
+  }
+}
