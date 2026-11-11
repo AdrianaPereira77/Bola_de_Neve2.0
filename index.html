@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bola de Neve - Gestão Financeira</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <span class="icon">❄️</span>
+        <h1>BOLA DE NEVE</h1>
+      </div>
+    </header>
+
+    <!-- TELA 1: Dashboard e Potes -->
+    <main id="screen-dashboard" class="screen active">
+      <div class="user-greeting">
+        <h2>Olá, Investidor!</h2>
+        <p class="subtitle">Planejamento Financeiro Inteligente</p>
+      </div>
+
+      <div class="card main-card">
+        <label for="input-renda">Sua Renda Total</label>
+        <div class="input-glow">
+          <span>R$</span>
+          <input type="number" id="input-renda" value="3000" step="100">
+        </div>
+
+        <div class="toggle-container">
+          <div class="toggle-label">
+            <span>Abater Dízimo (10%)</span>
+            <small id="dizimo-valor-text">R$ 300,00 descontado</small>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-dizimo" checked>
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+
+      <h3 class="section-title">Seu Orçamento</h3>
+      <div class="jars-grid">
+        <div class="jar-card">
+          <div class="jar-icon">🏠</div>
+          <span class="jar-badge">50%</span>
+          <h4>Despesas Principais</h4>
+          <p class="jar-value" id="val-despesas">R$ 1.350,00</p>
+        </div>
+
+        <div class="jar-card">
+          <div class="jar-icon">🍸</div>
+          <span class="jar-badge">30%</span>
+          <h4>Lazer</h4>
+          <p class="jar-value" id="val-lazer">R$ 810,00</p>
+        </div>
+
+        <div class="jar-card highlight">
+          <div class="jar-icon">📈</div>
+          <span class="jar-badge">20%</span>
+          <h4>Investimento</h4>
+          <p class="jar-value" id="val-investimento">R$ 540,00</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- TELA 2: Calculadora de Juros Compostos -->
+    <main id="screen-simular" class="screen">
+      <div class="simular-header">
+        <h2>CALCULADORA DE JUROS COMPOSTOS</h2>
+      </div>
+
+      <div class="card glow-border">
+        <label>INVESTIMENTO INICIAL</label>
+        <div class="input-glow">
+          <span>R$</span>
+          <input type="number" id="sim-inicial" value="3000">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <label>TEMPO DE INVESTIMENTO</label>
+            <span class="badge-time" id="time-badge">15 ANOS</span>
+          </div>
+          <input type="range" id="sim-anos" min="1" max="35" value="15">
+        </div>
+      </div>
+
+      <div class="card result-card">
+        <h3>RESUMO DA SIMULAÇÃO</h3>
+        <p class="result-label">VALOR FINAL ESTIMADO:</p>
+        <h2 class="result-total" id="res-final">R$ 13.450,78</h2>
+
+        <div class="result-split">
+          <div>
+            <span>TOTAL INVESTIDO:</span>
+            <strong id="res-suor">R$ 3.000,00</strong>
+          </div>
+          <div>
+            <span>TOTAL EM JUROS:</span>
+            <strong id="res-juros" class="cyan-text">R$ 10.450,78</strong>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Navegação Inferior -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-screen="screen-dashboard">
+        <span class="nav-icon">🏠</span>
+        <span>Início</span>
+      </button>
+      <button class="nav-item" data-screen="screen-simular">
+        <span class="nav-icon">📈</span>
+        <span>Simular</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
