@@ -12,7 +12,14 @@ module.exports = (req, res) => {
     return;
   }
 
-  const { renda = 3000, abaterDizimo = false, anos = 15, taxaAnual = 10 } = req.body || {};
+  let body = {};
+  try {
+    body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
+  } catch (e) {
+    body = {};
+  }
+
+  const { renda = 3000, abaterDizimo = false, anos = 15, taxaAnual = 10 } = body;
 
   const valorDizimo = abaterDizimo ? renda * 0.10 : 0;
   const rendaLiquida = renda - valorDizimo;
